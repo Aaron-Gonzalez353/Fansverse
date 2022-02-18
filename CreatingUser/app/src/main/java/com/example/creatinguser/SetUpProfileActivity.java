@@ -73,7 +73,7 @@ public class SetUpProfileActivity extends AppCompatActivity {
     private String currentUserID;
     private Toolbar toolbar;
     String fnumber;
-    boolean checker= false;
+
 
 
     private FirebaseAuth firebaseAuth;
@@ -88,18 +88,18 @@ public class SetUpProfileActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(SetUpProfileActivity.this);
         currentUserID = firebaseAuth.getCurrentUser().getUid().toString();
 
-        if(checker){
-            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent mainIntent = new Intent(SetUpProfileActivity.this, ProfileActivity.class);
-                    mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(mainIntent);
-                }
-            });
-        }
-
         toolbar = findViewById(R.id.update_profile_toolbar);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mainIntent = new Intent(SetUpProfileActivity.this, ProfileActivity.class);
+                mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(mainIntent);
+            }
+        });
+
+
         toolbar.setTitle("Update Your Profile");
         initializeViews();
 
@@ -220,7 +220,6 @@ public class SetUpProfileActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 DocumentSnapshot documentSnapshot = task.getResult();
                 if(documentSnapshot.getData().get("firstname") != null){
-                    checker = true;
                     String firstname_db = documentSnapshot.getData().get("firstname").toString();
                     String lastname_db = documentSnapshot.getData().get("lastname").toString();
                     String status_db = documentSnapshot.getData().get("status").toString();

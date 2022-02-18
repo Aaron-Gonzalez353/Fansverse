@@ -25,7 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     CircleImageView circleImageView;
     TextView username, firstname, lastname, status, phone, team;
-    Button changeImage, updateProfile;
+    Button changeImage, updateProfile, createFan;
     private String currentUserID;
     private Toolbar toolbar;
 
@@ -70,6 +70,15 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(loginIntent);
             }
         });
+
+        createFan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent loginIntent = new Intent(ProfileActivity.this, CreateFanPageActivity.class);
+                loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(loginIntent);
+            }
+        });
     }
 
     private  void  initializeViews(){
@@ -82,6 +91,7 @@ public class ProfileActivity extends AppCompatActivity {
         status = findViewById(R.id.profile_status);
         team = findViewById(R.id.profile_team);
         phone = findViewById(R.id.profile_phone);
+        createFan = findViewById(R.id.profile_update_fan);
     }
 
     private void retrieveProfile(){
@@ -92,7 +102,7 @@ public class ProfileActivity extends AppCompatActivity {
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                if(value == null || !value.exists()){
+                if(value.getData().get("username") == null){
                     Intent loginIntent = new Intent(ProfileActivity.this, SetUpProfileActivity.class);
                     loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(loginIntent);

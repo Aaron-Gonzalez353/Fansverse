@@ -8,4 +8,9 @@
 
     <string name="edit_message">Enter a message</string>
     <string name="button_map">Map</string>
+    <string name="change_image">Change Image</string>
+    <string name="firstname">Firstname</string>
+    <string name="lastname">Lastname</string>
+    <string name="username">username</string>
+    <string name="update_profile">Update Profile</string>
 </resources>

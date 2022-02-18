@@ -122,7 +122,7 @@ public class LoginPage extends AppCompatActivity {
 // setting an onclick event listener to Signup button. Once the clicks on this button, He is redirected to Registration page
         signup_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Registration.class);
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                 String current_username = login_username.getText().toString();
                 String current_password = login_password.getText().toString();
                 intent.putExtra("data", credentials);

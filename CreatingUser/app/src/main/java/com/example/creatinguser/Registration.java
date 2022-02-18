@@ -32,6 +32,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Registration extends AppCompatActivity implements View.OnClickListener{
 
@@ -139,6 +140,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(),"User Already Exists !",Toast.LENGTH_LONG).show();
             else {
 
+                // The toast displays even though the code to create the user has not yet executed.
                 Toast.makeText(this, "Registration Successful", Toast.LENGTH_LONG).show();
 
                 //If Registration is successful then put the entered username and password in the hashmap and send back the hashmap reference to the MainActivity using intent object.
@@ -152,12 +154,40 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                 mAuth.createUserWithEmailAndPassword(current_email,current_password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
+
+
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            // This code never executes even though the user is created. There is an error because this code has to execute if the user is created successfully
+                            Toast toast = Toast.makeText(getApplicationContext(),"It was successfull", Toast.LENGTH_LONG);
+                            toast.show();
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
 //                            updateUI(user);
+
+                            //Harsha code
+                            final FirebaseFirestore db2 = FirebaseFirestore.getInstance();
+                            String currentUserID = mAuth.getCurrentUser().getUid().toString();
+                            Map<String, Object> map = new HashMap<>();
+                            map.put("userID", currentUserID);
+                            map.put("username", current_username);
+                            db2.collection("Profile").document(currentUserID)
+                                    .set(map)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    String message = e.getMessage();
+                                    Toast toast = Toast.makeText(getApplicationContext(),"Error: "+ message, Toast.LENGTH_LONG);
+                                    toast.show();
+                                }
+                            });
+                            //End of Harsha code
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());

@@ -113,11 +113,26 @@
         android:textColor="@color/white"
         android:padding="10dp"
         android:layout_marginTop="20dp"
+        android:text="Create Fan Page"
+        android:layout_gravity="center"
+        android:id="@+id/profile_update_fan"
+        android:layout_height="wrap_content">
+
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
         android:text="@string/update_profile"
         android:layout_gravity="center"
         android:id="@+id/profile_update_btn"
         android:layout_height="wrap_content">
 
     </Button>
+
+
 
 </LinearLayout>
