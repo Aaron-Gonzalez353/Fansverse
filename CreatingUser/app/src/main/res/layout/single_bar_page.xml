@@ -17,7 +17,7 @@
             android:layout_height="match_parent">
             <TextView
                 android:layout_width="wrap_content"
-                android:id="@+id/single_page_title"
+                android:id="@+id/single_bar_page_title"
                 android:text="Title"
                 android:textSize="24dp"
                 android:layout_height="wrap_content">
@@ -25,7 +25,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_marginTop="15dp"
-                android:id="@+id/single_page_count"
+                android:id="@+id/single_bar_page_count"
                 android:text="1 Member"
                 android:textSize="16dp"
                 android:layout_height="wrap_content">
@@ -33,15 +33,15 @@
 
         </LinearLayout>
 
-<!--        <Button-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:id="@+id/single_page_btn"-->
-<!--            android:text="Join"-->
-<!--            android:layout_height="wrap_content">-->
-<!--        </Button>-->
+        <Button
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:id="@+id/single_bar_page_btn"
+            android:text="Join"
+            android:layout_height="wrap_content">
+        </Button>
 
     </LinearLayout>
 

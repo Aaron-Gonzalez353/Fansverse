@@ -1,11 +1,5 @@
 package com.example.creatinguser.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
-import com.example.creatinguser.R;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -19,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.creatinguser.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,7 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CreateFanPageActivity extends AppCompatActivity {
+public class CreateBarPageActivity extends AppCompatActivity {
     EditText titleET, descriptionET;
     Toolbar toolbar;
     Button createBtn;
@@ -39,34 +34,33 @@ public class CreateFanPageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_fan_page);
+        setContentView(R.layout.activity_create_bar_page);
 
-        getSupportActionBar().setTitle("Create Fan Page");
+        getSupportActionBar().setTitle("Create Bar Page");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
         currentUserID = firebaseAuth.getCurrentUser().getUid().toString();
+
         initializeViews();
-
-
 
         createBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createFanPage();
+                createBarPage();
             }
         });
     }
 
     private void initializeViews(){
-        titleET = findViewById(R.id.create_fan_title);
-        descriptionET = findViewById(R.id.create_fan_description);
-        createBtn = findViewById(R.id.create_fan_button);
+        titleET = findViewById(R.id.create_bar_title);
+        descriptionET = findViewById(R.id.create_bar_description);
+        createBtn = findViewById(R.id.create_bar_button);
     }
 
-    private void createFanPage(){
+    private void createBarPage(){
         String title = titleET.getText().toString();
         String description = descriptionET.getText().toString();
 
@@ -93,7 +87,7 @@ public class CreateFanPageActivity extends AppCompatActivity {
         map.put("userID", currentUserID);
 
 
-        db.collection("FanPages")
+        db.collection("BarPages")
                 .add(map)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
@@ -101,7 +95,7 @@ public class CreateFanPageActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                         Toast toast = Toast.makeText(getApplicationContext(), "Page Created successfully", Toast.LENGTH_LONG);
                         toast.show();
-                        Intent mainIntent = new Intent(getApplicationContext(), FanPageActivity.class);
+                        Intent mainIntent = new Intent(getApplicationContext(), BarPageActivity.class);
                         mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(mainIntent);
                         finish();
@@ -117,7 +111,6 @@ public class CreateFanPageActivity extends AppCompatActivity {
         });
 
     }
-
 
 
 }

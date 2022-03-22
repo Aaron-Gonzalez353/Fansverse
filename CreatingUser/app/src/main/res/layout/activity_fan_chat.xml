@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.FanChatActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_above="@+id/sendLinearLayout"
+            android:id="@+id/chat_activity_recyclerView"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/sendLinearLayout"
+            android:layout_alignParentStart="true"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:background="@android:color/background_light"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true">
+
+            <EditText
+                android:layout_width="220dp"
+                android:layout_weight="2"
+                android:id="@+id/chat_activity_message_input"
+                android:layout_margin="10dp"
+                android:imeOptions="actionSend"
+                android:inputType="textCapSentences|textMultiLine"
+                android:layout_height="wrap_content"
+                android:hint="Type your message here..."/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:visibility="gone"
+                android:layout_weight="1"
+                android:id="@+id/chat_activity_send_button"
+                android:layout_marginBottom="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/send"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

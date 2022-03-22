@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".activities.FanPageActivity">
+    tools:context=".activities.BarPageActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:id="@+id/fan_page_recyclerview"
+        android:id="@+id/bar_page_recyclerview"
         android:layout_height="match_parent">
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_add_fan_page"
+        android:id="@+id/floating_add_bar_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
@@ -22,5 +22,6 @@
         app:backgroundTint="@color/purple_200"
         android:contentDescription="Add"
         app:srcCompat="@drawable/ic_add"/>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

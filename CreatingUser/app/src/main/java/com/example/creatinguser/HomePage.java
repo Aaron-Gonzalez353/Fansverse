@@ -11,8 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
-
+import com.example.creatinguser.activities.BarPageActivity;
 import com.example.creatinguser.utilities.Constants;
 import com.example.creatinguser.utilities.PreferenceManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -36,9 +35,6 @@ public class HomePage extends AppCompatActivity {
     CardView cvMessage, cvMap, cvScore, cvStats, cvProfile, cvNews, cvFanPage, cvProfilePage;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,9 +46,18 @@ public class HomePage extends AppCompatActivity {
         cvMap = findViewById(R.id.cvMap);
         cvScore = findViewById(R.id.cvScore);
         cvNews = findViewById(R.id.cvNews);
-        cvFanPage = findViewById(R.id.cvFanPage);
-        cvProfilePage = findViewById(R.id.cvProfilePage);
+        cvFanPage = findViewById(R.id.cvFan);
+        cvProfilePage = findViewById(R.id.cvProfile);
+        cvBarPage = findViewById(R.id.cvBar);
 
+
+        cvBarPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), BarPageActivity.class);
+                startActivity(intent);
+            }
+        });
 
         cvFanPage.setOnClickListener(new View.OnClickListener() {
             @Override

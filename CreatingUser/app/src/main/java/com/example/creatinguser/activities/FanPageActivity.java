@@ -1,5 +1,6 @@
 package com.example.creatinguser.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -21,44 +22,51 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.annotations.NotNull;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class FanPageActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     Query query;
-    Toolbar toolbar;
     FirebaseFirestore db;
+    FloatingActionButton addFanPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fan_page);
 
+        addFanPage = findViewById(R.id.floating_add_fan_page);
+
         getSupportActionBar().setTitle("Fan Pages");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        addFanPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mainIntent = new Intent(FanPageActivity.this, CreateFanPageActivity.class);
+                startActivity(mainIntent);
 
-
-//        toolbar.setTitle("Fan Pages");
-//
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent mainIntent = new Intent(FanPageActivity.this, HomePage.class);
-//                mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                startActivity(mainIntent);
-//            }
-//        });
-
+            }
+        });
 
         recyclerView = findViewById(R.id.fan_page_recyclerview);
         recyclerView.setHasFixedSize(true);
@@ -84,10 +92,29 @@ public class FanPageActivity extends AppCompatActivity {
         FirestoreRecyclerAdapter<FanPage, FanViewHolder> firestoreRecyclerAdapter = new FirestoreRecyclerAdapter<FanPage, FanViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull @NotNull FanViewHolder holder, int position, @NonNull @NotNull FanPage model) {
+                final String  key = getSnapshots().getSnapshot(position).getId();
+
                 holder.setTitle(model.getTitle());
                 holder.setTotalMembers(model.getTotal_members());
-                holder.setButtonText(model.getUserID());
+
+
+
+
+                holder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), DetailPages.class);
+                        intent.putExtra("KEY", key);
+                        startActivity(intent);
+                    }
+                });
+
+
+
+
             }
+
+
 
             @NonNull
             @Override
@@ -118,7 +145,11 @@ public class FanPageActivity extends AppCompatActivity {
             firebaseAuth = FirebaseAuth.getInstance();
 
             currentUser = firebaseAuth.getCurrentUser().getUid().toString();
+
+
         }
+
+
 
         public void setTitle(String title){
             TextView titleTV = mView.findViewById(R.id.single_page_title);
@@ -130,16 +161,15 @@ public class FanPageActivity extends AppCompatActivity {
             caption.setText(String.valueOf(number) + " Member(s)");
         }
 
-        public void setButtonText(String currentUserdb){
-            Button button = mView.findViewById(R.id.single_page_btn);
-            if(currentUserdb.equals(currentUser)){
-                button.setVisibility(View.INVISIBLE);
-            }
-        }
-
-
+//        public void setButtonText(String currentUserdb){
+//            Button button = mView.findViewById(R.id.single_page_btn);
+//            if(currentUserdb.equals(currentUser)){
+//                button.setVisibility(View.INVISIBLE);
+//            }
+//        }
 
 
     }
+
 
 }
