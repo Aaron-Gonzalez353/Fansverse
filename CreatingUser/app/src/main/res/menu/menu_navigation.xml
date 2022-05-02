@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+    <item
+        android:id="@+id/sportsTeams"
+        android:title="Sports Teams"
+        android:icon="@drawable/ic_football"/>
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"
+        android:icon="@drawable/ic_power"/>
+
+</menu>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".activities.CreateFanPageActivity">
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="Group Chat Name"
+        android:layout_margin="24dp"
+        android:id="@+id/name_group_chat"
+        android:layout_height="wrap_content">
+
+    </EditText>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/create_group_chat_button"
+        android:text="Create Group Chat"
+        android:layout_height="wrap_content">
+    </Button>
+
+</LinearLayout>

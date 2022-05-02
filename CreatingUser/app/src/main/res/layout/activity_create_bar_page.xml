@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.CreateBarPageActivity">
 
-
     <EditText
         android:layout_width="match_parent"
         android:hint="Title"
@@ -25,12 +24,12 @@
         android:id="@+id/create_bar_description"
         android:layout_height="wrap_content">
     </EditText>
-
 <!--    <fragment-->
 <!--        android:name="com.google.android.gms.maps.SupportMapFragment"-->
 <!--        android:id="@+id/map"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="200dp"/>-->
+
 
     <Button
         android:layout_width="wrap_content"

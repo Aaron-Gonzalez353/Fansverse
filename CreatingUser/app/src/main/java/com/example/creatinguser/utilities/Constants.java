@@ -1,8 +1,11 @@
 package com.example.creatinguser.utilities;
 
+import retrofit2.http.PUT;
+
 public class Constants {
     public static final String KEY_COLLECTION_USERS = "users";
     public static final String KEY_NAME = "name";
+    public static final String KEY_GROUP_CHAT_NAME= "groupChatName";
     public static final String KEY_EMAIL = "email";
     public static final String KEY_PASSWORD = "password";
     public static final String KEY_PREFERENCE_NAME = "chatAppPreference";
@@ -12,15 +15,19 @@ public class Constants {
     public static final String KEY_FCM_TOKEN =  "fcmToken";
     public static final String KEY_USER = "user";
     public static final String KEY_COLLECTION_CHAT = "chat";
+    public static final String KEY_COLLECTION_GROUPCHAT = "groupChat";
     public static final String KEY_SENDER_ID = "senderId";
+    public static final String KEY_GROUP_SENDER_ID = "groupSenderId";
     public static final String KEY_RECEIVER_ID = "receiverId";
     public static final String KEY_MESSAGE = "message";
     public static final String KEY_TIMESTAMP = "timestamp";
-    public static final String KEY_COLLECTION_CONVERSATIONS = "conversations";
+    public static final String KEY_COLLECTION_DIRECTCONVERSATIONS = "directConversations";
+    public static final String KEY_COLLECTION_GROUPCONVERSATIONS = "groupConversations";
     public static final String KEY_SENDER_NAME = "senderName";
     public static final String KEY_RECEIVER_NAME = "receriverName";
     public static final String KEY_SENDER_IMAGE = "senderImage";
     public static final String KEY_RECEIVER_IMAGE = "receiverImage";
     public static final String KEY_LAST_MESSAGE = "lastMessage";
+    public static final String KEY_TYPE_OF_CHAT = "typeOfChat";
 }
 

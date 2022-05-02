@@ -30,6 +30,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.annotations.NotNull;
@@ -62,13 +63,17 @@ public class FanPageActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-
         addFanPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mainIntent = new Intent(FanPageActivity.this, CreateFanPageActivity.class);
                 startActivity(mainIntent);
 
+        addFanPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mainIntent = new Intent(FanPageActivity.this, CreateFanPageActivity.class);
+                startActivity(mainIntent);
             }
         });
 
@@ -98,6 +103,7 @@ public class FanPageActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull @NotNull FanViewHolder holder, int position, @NonNull @NotNull FanPage model) {
                 final String  key = getSnapshots().getSnapshot(position).getId();
 
+
                 holder.setTitle(model.getTitle());
                 holder.setTotalMembers(model.getTotal_members());
 
@@ -112,10 +118,6 @@ public class FanPageActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
-
-
-
-
             }
 
 
@@ -128,12 +130,8 @@ public class FanPageActivity extends AppCompatActivity {
                 return new FanViewHolder(view);
             }
         };
-
         firestoreRecyclerAdapter.startListening();
-
         recyclerView.setAdapter(firestoreRecyclerAdapter);
-
-
     }
 
     private static class FanViewHolder extends RecyclerView.ViewHolder{
@@ -174,6 +172,8 @@ public class FanPageActivity extends AppCompatActivity {
 
 
     }
+
+
 
 
 

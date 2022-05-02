@@ -130,8 +130,6 @@ public class BarPageActivity extends AppCompatActivity {
 
 
 
-
-
     }
 
 

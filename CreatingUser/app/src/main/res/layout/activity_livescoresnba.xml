@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#AB673AB7">
+
+    <Button
+        android:id="@+id/buttonLiveScoresPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back to All Leagues"
+        app:layout_constraintBottom_toTopOf="@+id/buttoncurrScores"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/liveScoresNBAPageFansverse" />
+
+    <Button
+        android:id="@+id/buttoncurrScores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Scores"
+        app:layout_constraintBottom_toTopOf="@+id/currScoresText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLiveScoresPage" />
+
+    <TextView
+        android:id="@+id/liveScoresNBAPageFansverse"
+        android:layout_width="248dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="40dp"
+        android:text="NBA Live Scores"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLiveScoresPage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/currScoresText"
+        android:layout_width="309dp"
+        android:layout_height="417dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="48dp"
+        android:foregroundGravity="fill_horizontal"
+        android:justificationMode="inter_word"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttoncurrScores" />
+</androidx.constraintlayout.widget.ConstraintLayout>

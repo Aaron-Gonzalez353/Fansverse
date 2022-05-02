@@ -24,4 +24,27 @@
     <string name="back_to_login">Back to Login</string>
     <string name="api_key">d4137699118e4f0587afd11d17bb54bf</string>
     <string name="signuppage">Sign Up Page</string>
+    <string name="interlude_pub">Interlude Pub</string>
+    <string name="interlude_address">Address: 1710 Clark Ave, Long Beach, CA 90815 \n \nHours: 6 am - 2 am \n \nWebsite: interludeLB.com</string>
+    <string name="photos_button">Photos</string>
+    <string name="menu_button">Menu</string>
+    <string name="reviews_button">Reviews</string>
+    <string name="title_activity_blondie_info_v2">blondie_info_v2</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="blondies_name">Blondies</string>
+    <string name="blondies_address">Address: 2259 N Lakewood Blvd, Long Beach, CA 90815 \n \nHours: 11 am - 12 am \n \nWebsite: blondiesLB.com</string>
+    <string name="crooked_duck_address">Address: 5096 CA-1, Long Beach, CA 90804 \n \nHours: 8 am - 3 pm \n \nWebsite: thecrookedduck.com</string>
+    <string name="crooked_duck_name">Crooked Duck</string>
+    <string name="mvp_grill_name">MVP Grill</string>
+    <string name="mvp_grill_address">Address: 5484 E Stearns St, Long Beach, CA 90815 \n \nHours: 8:30 am - 6 pm \n \nWebsite: mvpgrill.net</string>
+    <string name="port_city_tavern_name">Port City Tavern</string>
+    <string name="port_city_address">Address: 4306 E Anaheim St, Long Beach, CA 90804 \n \nHours: 4 pm - 2 am \n \nWebsite: portcitytavernlb.com</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

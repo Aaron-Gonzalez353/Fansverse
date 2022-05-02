@@ -89,7 +89,6 @@ public class CreateBarPageActivity extends AppCompatActivity {
         map.put("description",description);
         map.put("total_members", 1);
         map.put("userID", currentUserID);
-
         db.collection("BarPages")
                 .add(map)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -112,7 +111,6 @@ public class CreateBarPageActivity extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         });
-
 
     }
 

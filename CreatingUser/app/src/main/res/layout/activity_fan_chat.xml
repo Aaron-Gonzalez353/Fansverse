@@ -16,6 +16,7 @@
             android:id="@+id/chat_activity_recyclerView"
             android:layout_height="match_parent">
 
+
         </androidx.recyclerview.widget.RecyclerView>
 
         <LinearLayout

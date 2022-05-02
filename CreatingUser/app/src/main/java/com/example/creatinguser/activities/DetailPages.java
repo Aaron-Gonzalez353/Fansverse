@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.creatinguser.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -24,7 +25,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -140,6 +140,7 @@ public class DetailPages extends AppCompatActivity {
 //
 //    }
 
+
     public void joinPage(){
         progressDialog.setTitle("Joining Page");
         progressDialog.setMessage("Please wait...");
@@ -169,12 +170,10 @@ public class DetailPages extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Error joining.Try again later", Toast.LENGTH_LONG).show();
 
                 }
-
             }
         });
 
     }
-
 
     private void getCurrentUserDets(){
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -223,6 +222,7 @@ public class DetailPages extends AppCompatActivity {
 
 
     }
+
     public void retrievePage(){
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
         currentUserID = firebaseAuth.getCurrentUser().getUid().toString();
@@ -243,6 +243,7 @@ public class DetailPages extends AppCompatActivity {
 //                        posts.setVisibility(View.VISIBLE);
 //                        join.setVisibility(View.INVISIBLE);
 //                    }
+
 
                     numbers_of_members = Integer.parseInt(members);
 

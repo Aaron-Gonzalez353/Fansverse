@@ -58,6 +58,7 @@ public class CreateFanPageActivity extends AppCompatActivity {
         getCurrentUserDets();
 
 
+
         createBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

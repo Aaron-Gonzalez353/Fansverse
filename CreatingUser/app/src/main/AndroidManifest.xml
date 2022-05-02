@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="aandroid.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -29,6 +30,80 @@
         <activity
             android:name=".activities.FanMembers"
             android:exported="false" />
+
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_API_KEY" />
+
+        <activity android:name=".StandaloneActivity"/>
+
+        <activity
+            android:name=".YoutubeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BracketCell"
+            android:exported="false" />
+        <activity
+            android:name=".PlayoffBracket"
+            android:exported="false" />
+        <activity
+            android:name=".MVP_Grill_info_v2"
+            android:exported="false" />
+        <activity
+            android:name=".Port_City_info_v2"
+            android:exported="false" />
+        <activity
+            android:name=".CrookedDuck_info_v2"
+            android:exported="false" />
+        <activity
+            android:name=".Blondie_Info_v3"
+            android:exported="false" />
+        <activity
+            android:name=".Interlude_info_v2"
+            android:exported="false" />
+        <activity
+            android:name=".activities.FriendsListGroupChat"
+            android:exported="false" />
+        <activity android:name=".LiveScores" />
+        <activity android:name=".CurrentScoresNBA" />
+        <activity android:name=".CurrentScoresNFL" />
+        <activity android:name=".SportsTeamsMainPage" />
+        <activity android:name=".NBATeamsMainPage" />
+        <activity android:name=".NFLTeamsMainPage" />
+        <activity android:name=".SpecificNBATeam" />
+        <activity android:name=".SpecificNFLTeam" />
+        <activity android:name=".SpecificNBAPlayer" />
+        <activity android:name=".SpecificNFLPlayer" />
+        <activity android:name=".ScheduleMainPage" />
+        <activity android:name=".NBASchedule" />
+        <activity android:name=".NFLSchedule" />
+        <activity
+            android:name=".activities.CreateFanPageActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.ProfileActivity" />
+        <activity
+            android:name=".activities.UploadProfileActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.ProfileActivity" />
+        <activity
+            android:name=".activities.SetUpProfileActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.ProfileActivity" />
+        <activity
+            android:name=".activities.FanPageActivity"
+            android:exported="false"
+            android:parentActivityName=".HomePage" />
         <activity
             android:name=".activities.CommentsList"
             android:exported="false" />
@@ -45,6 +120,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.AddPost"
+
             android:exported="false" />
         <activity
             android:name=".activities.DetailPages"
@@ -54,6 +130,9 @@
             android:name=".activities.CreateBarPageActivity"
             android:exported="false"
             android:parentActivityName=".activities.BarPageActivity" />
+        <activity
+            android:name=".activities.CreateGroupChatActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.BarPageActivity"
             android:exported="false"
@@ -86,10 +165,6 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-
         <activity
             android:name=".GoogleMaps"
             android:exported="true"
@@ -105,10 +180,20 @@
             android:name=".activities.UsersActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.GroupUsersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DirectMessageScreen"
+            android:exported="true" />
+        <activity
+            android:name=".GroupMessageScreen"
             android:exported="true" />
         <activity
             android:name=".activities.ChatActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.GroupChatActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity

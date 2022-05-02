@@ -3,9 +3,12 @@ package com.example.creatinguser.utilities;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.List;
+
 public class PreferenceManager {
 
     private final SharedPreferences sharedPreferences;
+    private List<String> groupList;
 
     public PreferenceManager(Context context){
         sharedPreferences = context.getSharedPreferences(Constants.KEY_PREFERENCE_NAME, Context.MODE_PRIVATE);
@@ -29,6 +32,14 @@ public class PreferenceManager {
 
     public String getString(String key){
         return sharedPreferences.getString(key,null);
+    }
+
+    public List<String> getStrings(String user){
+        if (user == null)
+            return groupList;
+        else
+            groupList.add(user);
+            return groupList;
     }
 
     public void clear(){
